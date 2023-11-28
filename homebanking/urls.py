@@ -17,9 +17,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from accounts.views import home
+from movimientos.views import movimientos_inicio
+from prestamos.views import prestamos_inicio
+from signup.views import signup
+from cuentas.views import cuentas_inicio
+from tarjetas.views import tarjetas_inicio
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-    path("accounts/", include("accounts.urls")),
+    path("accounts/signup", signup , name='signup'),
+    path("", home, name="home"),
+    path("cuentas", cuentas_inicio, name="cuentas"),
+    path("tarjetas", tarjetas_inicio, name="tarjetas"),
+    path("prestamos", prestamos_inicio, name="prestamos"),
+    path("movimientos", movimientos_inicio, name="movimientos")
 ]

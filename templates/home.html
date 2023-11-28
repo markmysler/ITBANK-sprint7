@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title%}
+ITBANK - HOME
+{%endblock%}
+{% block username%}
+{{username}}
+{%endblock%}
+
+{% block content%}
+<h1 class='titulo'>ITBANK - HOME</h1>
+<div class='opciones_home'>
+    <a class='cuadrado' href='/cuentas'>
+    Cuentas
+    </a>
+    <a href='tarjetas' class='cuadrado'>
+    Tarjetas
+    </a>
+    <a href='prestamos' class='cuadrado'>
+    Prestamos
+    </a>
+    <a href='movimientos' class='cuadrado'>
+    Movimientos
+    </a>
+</div>
+{%endblock%}
