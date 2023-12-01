@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{%load static%}
 {% block title%}
 ITBANK - MOVIMIENTOS
 {%endblock%}
@@ -7,7 +7,28 @@ ITBANK - MOVIMIENTOS
 {% block username%}
 {{username}}
 {%endblock%}
+{% block head%}
+<link rel="stylesheet" href="{%static 'css/movimientos.css'%}">
+{%endblock%}
 
 {% block content%}
-Movimientos
+<h2 class='titulo'>MOVIMIENTOS</h2>
+<div id="movimientos">
+    {%if movimientos%}
+        {%for movimiento in movimientos%}
+            <div class="movimiento">
+                {%if movimiento.cuenta_origen.pk in cuentas%}
+                <h3>Transferencia saliente</h3>
+                {%elif movimiento.cuenta_destino.pk in cuentas%}
+                <h3>Transferencia entrante</h3>
+                {% endif %}
+                <p>${{movimiento.monto}}</p>
+                <p>{{movimiento.fecha_hora}}</p>
+            </div>
+        {%endfor%}
+    {%else%}
+    <p>Aun no tienes movimientos</p>
+    {%endif%}
+</div>
+<a href='../'>< Back</a>
 {%endblock%}

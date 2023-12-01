@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{%load static%}
+
+{% block title%}
+ITBANK - CREAR TARJETA
+{%endblock%}
+
+{% block username%}
+{{username}}
+{%endblock%}
+{% block head%}
+<link rel='stylesheet' href='{% static "css/crear-tarjeta.css" %}'>
+{%endblock%}
+
+{% block content%}
+<h2 class='titulo'>Crear tarjeta</h2>
+<form method="POST">
+{% csrf_token %}
+{{form.as_p}}
+{% if form..non_field_errors %}
+    <div class="error">
+        {% for error in form.non_field_errors %}
+            {{ error }}
+        {% endfor %}
+    </div>
+{% endif %}
+<button type='submit'>Crear</button>
+</form>
+<a href='../'>< Back</a>
+{%endblock%}

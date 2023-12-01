@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{%load static%}
+
+
+{% block title%}
+ITBANK - DETALLE TARJETA
+{%endblock%}
+{% block username%}
+{{username}}
+{%endblock%}
+{% block head%}
+<link rel='stylesheet' href="{% static 'css/tarjeta-detalle.css' %}">
+{%endblock%}
+
+
+{% block content%}
+
+<h2 class='titulo'>Tarjeta nro {{tarjeta.card_number}}
+</h2>
+<p>{{tarjeta.card_type}}</p>
+<h3>{{tarjeta.card_issuer}}</h3>
+{%if tarjeta.related_account %}
+<p>{{tarjeta.related_account}}</p>
+{% endif %}
+<a href='../'>< Back</a>
+{%endblock%}

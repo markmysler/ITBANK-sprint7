@@ -1,0 +1,49 @@
+main{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+#signup-button{
+    font-size: 1.1rem;
+    background-color: lightgreen;
+    border: 2px solid gray;
+    border-radius: 10px;
+    padding: 2% 10%;
+    margin: 3% 0;
+
+}
+input{
+    font-size: 1.1rem;
+    border-radius: 10px;
+    border: 2px solid gray;
+    padding: 1%;
+    display: block;
+}
+label{
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.75);
+}
+span{
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.75);
+    display: block;
+}
+select{
+    font-size: 1.1rem;
+    border-radius: 10px;
+    border: 2px solid gray;
+    padding: 1%;
+}
+li{
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.75);
+
+}
+p{
+    margin: 1% 0;
+}

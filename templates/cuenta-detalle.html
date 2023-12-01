@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load replace_filter %}
+{%load static%}
+
+
+{% block title%}
+ITBANK - DETALLE CUENTA
+{%endblock%}
+{% block username%}
+{{username}}
+{%endblock%}
+{% block head%}
+<link rel='stylesheet' href="{% static 'css/cuenta-detalle.css' %}">
+{%endblock%}
+
+
+{% block content%}
+
+<h2 class='titulo'>Cuenta nro {{cuenta.account_id}}
+</h2>
+<p>{{cuenta.account_type|replace_hyphen}}</p>
+<h3>${{cuenta.balance}}</h3>
+<form method='POST' class='transferencia'>
+    {% csrf_token %}
+    <h3>Transferir</h3>
+    {% if form.non_field_errors %}
+        <div class="error">
+            {% for error in form.non_field_errors %}
+                {{ error }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    {{form.as_p}}
+    <button type='submit'>Enviar</button>
+</form>
+<p id='iban'>IBAN: {{cuenta.iban}}</p>
+<a href='../'>< Back</a>
+{%endblock%}

@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel='stylesheet' href="{% static "css/base.css" %}">
     <title>{% block title %}titulo{% endblock %}</title>
+    {%block head%}
+    {%endblock%}
   </head>
   <body>
     <header>
@@ -15,13 +17,11 @@
       <div>
         {%block username%}
       {%endblock%}
-      <a href='/accounts/logout/'>Cerrar sesion</a>
+      <a href='/accounts/logout/' id='logout'>Cerrar sesion</a>
       </div>
       
       {%endif%}
-      <div>
-
-      </div>
+      
     </header>
     <main>
         {% block content %}

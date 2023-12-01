@@ -1,7 +1,12 @@
 {% extends "base.html" %}
+{% load replace_filter %}
+{% load static%}
 
 {% block title%}
 ITBANK - CUENTAS
+{%endblock%}
+{% block head%}
+<link rel="stylesheet" href="{% static "css/cuentas.css" %}">
 {%endblock%}
 
 {% block username%}
@@ -9,5 +14,26 @@ ITBANK - CUENTAS
 {%endblock%}
 
 {% block content%}
-Cuentas
+<h2 class='titulo'>MIS CUENTAS</h2>
+<a href='agregar/'><button class='agregar-cuenta'>
+    Agregar una cuenta
+</button></a>
+
+
+<section class='cards-container'>
+    {%if cuentas%}
+    {%for cuenta in cuentas%}
+    <a class='card' href="{{cuenta.account_id}}/">
+        <h3 class='card-title'>Cuenta nro: {{cuenta.account_id}}</h3>
+        <p class='card-subtitle'>{{cuenta.account_type|replace_hyphen}}</p>
+        <p id='card-balance'>${{cuenta.balance}}</p>
+    </a>
+    {%endfor%}
+    {%else%}
+    <a class='card'>
+        <h3 class='card-title'>Aun no tenes cuentas</h3>
+    </a>
+    {%endif%}
+    
+</section>
 {%endblock%}

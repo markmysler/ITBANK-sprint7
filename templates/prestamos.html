@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{%load static%}
 
 {% block title%}
 ITBANK - PRESTAMOS
@@ -7,7 +8,41 @@ ITBANK - PRESTAMOS
 {% block username%}
 {{username}}
 {%endblock%}
+{% block head%}
+<link rel='stylesheet' href="{% static 'css/prestamos.css' %}">
+{%endblock%}
 
 {% block content%}
-Prestamos
+<h2 class='title'>PRESTAMOS</h2>
+<div id='limites'>
+    <h4>Limites</h4>
+    <div id='limites_list'>
+        <div class='tipo_cuenta classic'>
+            <h6>Classic</h6>
+            <p>$100.000</p>
+        </div>
+        <div class='tipo_cuenta gold'>
+            <h6>Gold</h6>
+            <p>$300.000</p>
+        </div>
+        <div class='tipo_cuenta black'>
+            <h6>Black</h6>
+            <p>$500.000</p>
+        </div>
+    </div>
+    <h5>Eres cliente {{customer_type}}</h5>
+</div>
+<form method='POST'>
+    <h3>Prestamos Pre-Aprobados</h3>
+    {%csrf_token%}
+    {% if form.non_field_errors %}
+        <div class="error">
+            {% for error in form.non_field_errors %}
+                {{ error }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    {{form.as_p}}
+    <button type='submit'>Solicitar</button>
+</form>
 {%endblock%}

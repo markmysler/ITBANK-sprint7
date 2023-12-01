@@ -1,0 +1,104 @@
+main{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid gray;
+    border-radius: 10px;
+    padding: 2%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+select, input{
+    display: block;
+    border: 2px solid gray;
+    border-radius: 10px;
+    padding: 2%;
+    text-align: center;
+    width: 60vw;
+}
+input{
+    box-sizing: border-box;
+}
+
+label{
+    text-align: center;
+    display: block;
+    margin-bottom: 1vw;
+
+}
+h3,h4,p, h5,h6{
+    margin: 2%;
+    text-align: center;
+
+}
+h3{
+    width: 70vw;
+}
+form button{
+    background-color: lightgreen;
+    font-size: 1.5rem;
+    border: 2px solid gray;
+    border-radius: 10px;
+    padding: 1% 8%;
+    margin-top: 2vh;
+}
+#limites{
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    margin-bottom: 4vh;
+    gap: 10px;
+}
+#limites_list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+.tipo_cuenta{
+    border: 2px solid gray;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20vw;
+    gap: 5px;
+    padding: 2%;
+    height: 20vw;
+    color: white;
+    font-size: 1.2rem;
+}
+.classic{
+    background-color: crimson;
+}
+.gold{
+    background-color: darkgoldenrod;
+}
+.black{
+    background-color: rgba(0, 0, 0, 0.9);
+}
+.tipo_cuenta h6{
+    font-size: 1.4rem;
+}
+.title{
+    text-align: center;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 2rem;
+}
+#limites h4{
+
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 1.35rem;
+}
+#limites h5{
+    font-size: 1.3rem;
+    color: rgba(0, 0, 0, 0.8);
+}

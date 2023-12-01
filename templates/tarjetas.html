@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load replace_filter %}
+{% load static%}
 
 {% block title%}
 ITBANK - TARJETAS
@@ -8,6 +10,34 @@ ITBANK - TARJETAS
 {{username}}
 {%endblock%}
 
-{% block content%}
-Tarjetas
+{% block head%}
+<link rel="stylesheet" href="{% static "css/tarjetas.css" %}">
 {%endblock%}
+
+{% block content%}
+<h2 class='titulo'>MIS TARJETAS</h2>
+<a href='agregar/'><button class='agregar-tarjeta'>
+    Agregar una tarjeta
+</button></a>
+
+
+<section class='cards-container'>
+    {%if tarjetas%}
+    {%for tarjeta in tarjetas%}
+    <a class='card' href="{{tarjeta.card_number}}/">
+        <h3 class='card-title'>Tarjeta nro: {{tarjeta.card_number}}</h3>
+        <p class='card-subtitle'>{{tarjeta.card_type}}</p>
+        <p id='card-issuer'>{{tarjeta.card_issuer}}</p>
+    </a>
+    {%endfor%}
+    {%else%}
+    <a class='card'>
+        <h3 class='card-title'>Aun no tenes tarjetas</h3>
+    </a>
+    {%endif%}
+    
+</section>
+{%endblock%}
+
+
+

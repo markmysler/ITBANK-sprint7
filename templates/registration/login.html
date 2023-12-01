@@ -1,7 +1,12 @@
 {% extends "base.html" %}
+{%load static%}
+
+{%block head%}
+<link rel='stylesheet' href='{% static "css/login.css" %}'>
+{%endblock%}
 
 {% block content %}
-
+  <h2 class='titulo'>LOGIN</h2>
   {% if form.errors %}
     <p>Your username and password didn't match. Please try again.</p>
   {% endif %}
@@ -27,12 +32,15 @@
         <td>{{ form.password }}</td>
       </tr>
     </table>
-    <input type="submit" value="login">
+    <input type="submit" value="Login" id='login-button'>
     <input type="hidden" name="next" value="{{ next }}">
   </form>
 
   {# Assumes you setup the password_reset view in your URLconf #}
-  <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+  <div class='reset-pass-signup'>
+    <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
   <p><a href="{% url 'signup' %}">Create account</a></p>
+  </div>
+  
 
 {% endblock %}
